@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akan names</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href = "styles.css" rel = "stylesheet" type="text/css">
 </head>
 <body>
    <div class="container mt-3 border p-3">
@@ -18,11 +19,11 @@
        <div class="row p-3">
            <div class="col">
                <form id="dateForm">
-                    <select class="form-select p-3" id="Gender" aria-label="Default select example">
-                        <option selected="Open menu">Open menu</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
+                <select class="form-select" aria-label="Default select example" id="gender">
+                    <option selected>Open this to select your gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
                     <div class="mb-3 mt-3">
                         <label for="date" class="form-label">Date of birth</label>
                         <input type="Date" class="form-control" id="date" required>
@@ -31,7 +32,21 @@
                 </form>
             </div>
        </div>
+       <div class="row border mt-3">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+              </tr>
+            </thead>
+            <tbody id="nameTbody">
+            </tbody>
+        </table>
+      </div>
+    </div>
+            
    </div>
-    <script src="./script.js"></script>
+   <script src="./script.js"></script>
 </body>
 </html>
