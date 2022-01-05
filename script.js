@@ -1,35 +1,42 @@
-window.addEventListener("DOMContentLoaded", function() {
-    console.log("document loaded");
+window.addEventListener("DOMContentLoaded",function(){
+    console.log("Content loaded");
     let nameList = new Array();
-    const dateForm = document.querySelector("#dateForm");
+    let dateForm = document.querySelector("#dateForm");
+    let nameTbody = document.querySelector("#nameTbody");
     console.log("Form added",dateForm);
+    // console.log("Table body",nameTbody);
 
+    dateForm.addEventListener("submit", function(event){
+        event.preventDefault();
+        console.log("Submitted")
 
-    dateForm.addEventListener("submit", function(submitEvent) {
-        submitEvent.preventDefault();
-        console.log("submitted");
+        const gender = document.querySelector("#gender").value;
+        // console.log("gender",gender);
 
-        let gender = document.querySelector("#Gender").value;
-
-        let dates = document.querySelector("#date").value;
-        let calendarDate = new Date(dates);
+        let dateInput = document.querySelector("#date").value;
+        let calendarDate = new Date(dateInput);
         let birthday = calendarDate.getDay();
-
+        // dateInput = dobDay;
+        // console.log(dobDay);
 
         let nameRow = document.createElement("tr");
+        // let nameData = document.createElement("td");
+
+        // nameRow.appendChild(nameData);
         let namesData = document.createElement("td");
         nameTbody.appendChild(nameRow);
-        
-        let male = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
-        let female = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
-        if (gender == "male") {
-            nameList.push(maleGender[dobDay]);
+
+        let male = ["Kwasi","Kwadwo","Kwabena","Kwaku","Yaw","Kofi","Kwame"];
+        let female = ["Akosua","Adwoa","Abenaa","Akua","Yaa","Afua","Ama"];
+
+        if (gender == "Male") { 
+            nameList.push(male[birthday]);
             displayName();
-        } else if (gender == "female") {
-            nameList.push(femaleGender[dobDay]);
+        } else if(gender == "Female") {
+            nameList.push(female[birthday]);
             displayName();
-        } else {
-            alert("error input your gender");
+        } else { 
+            alert("Error!Please select your gender");
         }
 
         function displayName() { 
@@ -39,6 +46,5 @@ window.addEventListener("DOMContentLoaded", function() {
                 nameTbody.appendChild(nameRow);
             });
         }
-    })
-})
-
+    });
+});
